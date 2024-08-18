@@ -1,5 +1,3 @@
-module arithmetic-coding
+module github.com/lazarus/arithmetic-coding-go
 
 go 1.22
-
-require github.com/davecgh/go-spew v1.1.1

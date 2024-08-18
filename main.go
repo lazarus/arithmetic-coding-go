@@ -1,8 +1,8 @@
 package main
 
 import (
-	"arithmetic-coding/ac"
 	"fmt"
+	"github.com/lazarus/arithmetic-coding-go/ac"
 	"log"
 	"os"
 )

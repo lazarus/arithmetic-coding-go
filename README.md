@@ -33,38 +33,35 @@ package main
 
 import (
 	"fmt"
+	"github.com/lazarus/arithmetic-coding-go/ac"
 	"log"
 	"os"
-	"arithmetic-coding-go/ac" // Replace with your actual import path
 )
 
 func main() {
-	// Read input file
 	fileName := "ex.txt"
 	data, err := os.ReadFile(fileName)
 	if err != nil {
 		log.Fatalf("Failed to read file: %v", err)
 	}
 
-	// Create a new arithmetic coding context
 	context := ac.NewContext()
-    
-	// Encode the file data
 	encoded := context.Encode(data)
-	fmt.Printf("Original size: %d bytes, Encoded size: %d bytes\n", len(data), len(encoded))
 
-	// Decode the encoded data
+	fmt.Printf("Original size: %d bytes, encoded size: %d bytes\n", len(data), len(encoded))
+
 	context = ac.NewContext()
 	decoded := context.Decode(encoded)
-	fmt.Printf("Encoded size: %d bytes, Decoded size: %d bytes\n", len(encoded), len(decoded))
 
-	// Check if the original and decoded data match
+	fmt.Printf("Encoded size: %d bytes, decoded size: %d bytes\n", len(encoded), len(decoded))
+
 	if string(data) == string(decoded) {
 		fmt.Println("Success: The original and decoded data match!")
 	} else {
 		fmt.Println("Error: The original and decoded data do not match.")
 	}
 }
+
 ```
 
 ### API Overview
